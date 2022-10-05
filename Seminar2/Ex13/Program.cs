@@ -1,8 +1,12 @@
-﻿Console.Write("Введите число: ");
+﻿while (true)
+{
+Console.Write("Введите число: ");
 string a = Console.ReadLine();
 int b = a.Length;
 
-if (a[0] != '-' && b > 2)
+if (double.TryParse(a, out double number))
+    {
+        if (a[0] != '-' && b > 2)
 {
     Console.WriteLine(a[2]); 
 } 
@@ -17,3 +21,9 @@ else
             Console.WriteLine("Третьей цифры нет");
             }
 }
+        
+        break;
+    }
+    Console.WriteLine("Не удалось распознать число, попробуйте еще раз.");
+}
+
