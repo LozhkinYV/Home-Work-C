@@ -11,6 +11,12 @@ double Square(double val1, double val2)
 	return resalt;
 }
 
+double Root(double val1, double val2, double val3)
+{
+	double resalt = Math.Sqrt(val1 + val2 + val3); 
+	return resalt;
+}
+
 double xA = Print("Введите координату xA: ");
 double yA = Print("Введите координату yA: ");
 double zA = Print("Введите координату zA: ");
@@ -23,7 +29,7 @@ double X = Square(xA, xB);
 double Y = Square(yA, yB);
 double Z = Square(zA, zB);
 
-double l = Math.Sqrt(X + Y + Z) ;
+double l = Root(X, Y, Z) ;
 
 Console.WriteLine("Расстояние АВ = " +l);
 
