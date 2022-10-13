@@ -6,13 +6,16 @@
 	return value;
 }
 
+string Reverse(string massege)
+{
+    char[] rev = massege.ToCharArray();
+    Array.Reverse(rev);
+    string value = new string(rev);
+	return value;
+}
+
 string a = Print ("Введите число или слово: ");
-
-char[] rev = a.ToCharArray();
-Array.Reverse(rev);
-string b = new string(rev);
-
-
+string b = Reverse (a);
 
 if (a.ToLower() == b.ToLower()) {Console.WriteLine("Палиндром"); }
 else {Console.WriteLine("Не палиндром!");}
