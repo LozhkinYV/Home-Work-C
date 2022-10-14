@@ -14,6 +14,8 @@ void MyArray(int[] val, int min, int max) // создает рандомные �
         val[index] = new Random().Next(min, max); 
         index++;
     }
+    val[0] = min;
+    val[length-1] = max;
 }
 
 void PrintArray(int[] col) // печатает массив 
