@@ -41,14 +41,12 @@ int Input(string massege) // ввод целочисленных данных
     }
 }
 
-int len = Input("Введите длину массива: ");
-int minCol = 100; // минимальное значение массива
-int maxCol = 1000; // длина массива
-
-int[] arr = RandomArray(len, minCol, maxCol);
-int s = 0;
-int a=0;
-for (int i=0; i < arr.Length; i++)
+void EvenNumbers(int val1, int val2, int val3)
+{
+    int[] arr = RandomArray(val1, val2, val3);
+    int s = 0;
+    int a=0;
+    for (int i=0; i < arr.Length; i++)
 {
     a = arr[i]%2;
     if (a == 0) 
@@ -58,3 +56,10 @@ for (int i=0; i < arr.Length; i++)
     else {}
 }
 Console.WriteLine($"Количество четных {s}");
+}
+
+int len = Input("Введите длину массива: ");
+int minCol = 100; // минимальное значение массива
+int maxCol = 1000; // длина массива
+
+EvenNumbers(len, minCol, maxCol);
