@@ -16,7 +16,7 @@ Console.Write("[");
 for (int i = 0; i < N-1; i++)
 {
      Console.Write(array[i]);
-     Console.Write(", ");
+     Console.Write(" ");
 }
 Console.Write(array[N-1]);
 Console.WriteLine("]");
