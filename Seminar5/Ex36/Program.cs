@@ -1,6 +1,7 @@
 ﻿/*
-Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
-[345, 897, 568, 234] -> 2
+Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+[3, 7, 23, 12] -> 19
+[-4, -6, 89, 6] -> 0
 */
 
 int[] RandomArray(int val, int min, int max) 
@@ -41,25 +42,26 @@ int Input(string massege) // ввод целочисленных данных
     }
 }
 
-void EvenNumbers(int val1, int val2, int val3)
+void SumOddPositions(int val1, int val2, int val3)
 {
     int[] arr = RandomArray(val1, val2, val3);
     int s = 0;
     int a=0;
     for (int i=0; i < arr.Length; i++)
 {
-    a = arr[i]%2;
+    a = i % 2;
     if (a == 0) 
+    {  }
+    else 
     {
-        s++;
+       s = s + arr[i];
     }
-    else {}
 }
-Console.WriteLine($"Количество четных {s}");
+Console.WriteLine($"Сумма в нечетных позициях {s}");
 }
 
 int len = Input("Введите длину массива: "); // длина массива
-int minCol = 100; // минимальное значение массива
-int maxCol = 1000; // максимальное значение массива
+int minCol = Input("Введите длину массива: "); // минимальное значение массива
+int maxCol = Input("Введите длину массива: "); // максимальное значение массива
 
-EvenNumbers(len, minCol, maxCol);
+SumOddPositions(len, minCol, maxCol);
