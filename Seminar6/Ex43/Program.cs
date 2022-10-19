@@ -18,7 +18,7 @@ double Input(string massege)
         }
         else
         {
-            Console.WriteLine("Это не целое число! Попробуйте еще раз!");
+            Console.WriteLine("Это не число! Попробуйте еще раз!");
         }
     }
 }
