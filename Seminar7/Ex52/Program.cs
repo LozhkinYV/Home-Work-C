@@ -55,9 +55,9 @@ void PrintArray2(int[,] array) //вывод двумерного массива
 void Average(int[,] array)
 {
     int[] summ = new int[array.GetLength(1)];
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(1); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(0); j++)
         {
             summ[i] += array[j, i];
         }
@@ -65,7 +65,7 @@ void Average(int[,] array)
 
    for (int k = 0; k < summ.Length; k++)
     {
-        Console.Write($"{Math.Round(summ[k] * 1.0 / summ.Length, 1)}|");
+        Console.Write($"{Math.Round(summ[k] * 1.0 / array.GetLength(0), 1)}|");
     }
 }
 
