@@ -51,34 +51,38 @@ void PrintArray(int[,] array) //вывод двумерного массива
     }
 }
 
-int[] SumRowArray(int[,] array) //Сортировка двумерного массива
+int[] SumRowArray(int[,] array, int[] summ) //создание одномерного массива из суммы строк двумерного
 {
-    int[] summ = new int[array.GetLength(1)];
     for (int row = 0; row < array.GetLength(0); row++)
     {
         for (int column = 0; column < array.GetLength(1); column++)
         {
-          summ[row] += array[row, column];  
+            summ[row] += array[row, column];
         }
 
     }
     return summ;
 }
 
-void PrintSumRowArray (int[] array)
+void PrintSumRowArray(int[] array) //вывод суммы строк
 {
-     for (int row = 0; row < array.Length; row++)
+    for (int row = 0; row < array.Length; row++)
     {
         Console.WriteLine($"{array[row]}");
     }
 }
 
-void RowArrayMin(int[] array) 
+void RowArrayMin(int[] array) //поиск и вывод наименьшей строки с наименьшей суммой
 {
-    for (int row = 0; row < array.Length; row++)
+    int index = 0;
+    for (int row = 1; row < array.Length; row++)
     {
-        
+        if (array[row] < array[index])
+        {
+            index = row;
+        }
     }
+    Console.WriteLine($"Наименьшая сумма в {index + 1} строке");
 }
 
 int row = Input("Введите количество строк: ");
@@ -88,12 +92,12 @@ Console.WriteLine();
 int[,] array = new int[row, column];
 FillArray(array);
 PrintArray(array);
+Console.WriteLine();
+
+int[] summ = new int[array.GetLength(0)];
+SumRowArray(array, summ);
+PrintSumRowArray(summ);
 
 Console.WriteLine();
 
-
-PrintSumRowArray (SumRowArray(array));
-
-Console.WriteLine();
-
-Console.WriteLine(RowArrayMin(SumRowArray(array), 0));
+RowArrayMin(summ);
