@@ -136,14 +136,10 @@ int[,] FillMatrixSpiral(int[,] array)
 
 int row = Input("Введите количество строк и столбцов: ");
 int column = row;
-
-Console.WriteLine();
-
 int[,] array = new int[row, column];
 FillArray(array);
-PrintArray(array);
-Console.WriteLine();
 
+Console.WriteLine();
 FillMatrixSpiral(array);
 PrintArray(array);
 
