@@ -86,7 +86,7 @@ void RowArrayMin(int[] array) //поиск и вывод наименьшей с
 }
 
 int row = Input("Введите количество строк: ");
-int column = Input("Введите количество столбцов: ")
+int column = Input("Введите количество столбцов: ");
 int[,] array = new int[row, column];
 int[] summ = new int[array.GetLength(0)];
 
