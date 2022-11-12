@@ -82,7 +82,7 @@ void RowArrayMin(int[] array) //поиск и вывод наименьшей с
             index = row;
         }
     }
-    Console.WriteLine($"Наименьшая сумма в {index + 1} строке");
+    Console.Write($"Наименьшая сумма в {index + 1} строке");
 }
 
 int row = Input("Введите количество строк: ");
