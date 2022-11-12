@@ -121,11 +121,12 @@ int[,] FillMatrixSpiral(int[,] array)
         b--;
         c++;
         d++;
+    }
         if (array.GetLength(1) % 2 != 0) 
         {
             array[r, col + 1] += k;
         }
-    }
+    
 
     return array;
 }
