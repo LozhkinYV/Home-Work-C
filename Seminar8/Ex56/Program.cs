@@ -64,7 +64,7 @@ int[] SumRowArray(int[,] array, int[] summ) //создание одномерн�
     return summ;
 }
 
-void PrintSumRowArray(int[] array) //вывод суммы строк
+void PrintSumRowArray(int[] array) //вывод суммы строк для самопроверки
 {
     for (int row = 0; row < array.Length; row++)
     {
@@ -87,17 +87,17 @@ void RowArrayMin(int[] array) //поиск и вывод наименьшей с
 
 int row = Input("Введите количество строк: ");
 int column = Input("Введите количество столбцов: ");
+int[,] array = new int[row, column];
+int[] summ = new int[array.GetLength(0)];
+
 Console.WriteLine();
 
-int[,] array = new int[row, column];
 FillArray(array);
 PrintArray(array);
 Console.WriteLine();
 
-int[] summ = new int[array.GetLength(0)];
 SumRowArray(array, summ);
 PrintSumRowArray(summ);
-
 Console.WriteLine();
 
 RowArrayMin(summ);
