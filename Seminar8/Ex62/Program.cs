@@ -41,35 +41,23 @@ int[,] FillArray(int[,] array) //создание рандомного двум�
 
 void PrintArray(int[,] array) //вывод двумерного массива
 {
+    int max = array[0, 0];
+    for (int row = 0; row < array.GetLength(0); row++)
+    {
+        for (int column = 0; column < array.GetLength(1); column++)
+            if (array[row, column] > max)
+                max = array[row, column];
+    }
     for (int row = 0; row < array.GetLength(0); row++)
     {
         for (int column = 0; column < array.GetLength(1); column++)
         {
-            Console.Write($"{array[row, column]} ");
+            string num = array[row, column].ToString();
+            Console.Write(new String('0', max.ToString().Length - num.Length) + num + ' ');
         }
         Console.WriteLine();
     }
 }
-
-
-/*void FillImage(int[,] array, int r, int co, int k)
-{
-     
-    if (r >= array.GetLength(0)) r--;
-    if (co >= array.GetLength(1)) co--;
-    if (r < 0) r++;
-    if (co < 0) co++;
-    if (array[r, co] == -1)
-    {
-        array[r, co] += k;
-        k++;
-        FillImage(array, r, co + 1, k);
-        FillImage(array, r + 1, co, k);
-        FillImage(array, r, co - 1, k);
-        FillImage(array, r - 1, co, k);
-    }
-
-}*/
 
 int[,] FillMatrixSpiral(int[,] array)
 {
@@ -80,64 +68,64 @@ int[,] FillMatrixSpiral(int[,] array)
     int b = array.GetLength(0); // счетчик для движения вниз
     int c = 0; // счетчик для движения вверх
     int d = 0; // счетчик для движения влево
-   
-for (int l=0; l<array.GetLength(1)/2; l++)
-{
-    for (int i = col; i < a; i++)
+
+    for (int l = 0; l < array.GetLength(1) / 2; l++) 
     {
-        if (array[r, col] == -1)
+        for (int i = col; i < a; i++) //пробегаем вправо и если на этом месте  -1 то заменяем ее на число
         {
-            array[r, col]  += k;
-            k++;
+            if (array[r, col] == -1)
+            {
+                array[r, col] += k;
+                k++;
 
-        }
-        col++;
-    }
-    col--;
-
-    for (int m = r; m < b; m++)
-    {
-        if (array[r, col] == -1)
-        {
-            array[r, col] += k;
-            k++;
-
-        }
-        r++;
-    }
-    r--;
-
-    for (int j = col; j >= c; j--)
-    {
-        if (array[r, col] == -1)
-        {
-            array[r, col] += k;
-            k++;
-
+            }
+            col++;
         }
         col--;
-    }
-    col++;
-    for (int n = r; n > d; n--)
-    {
-        if (array[r, col] == -1)
-        {
-            array[r, col] += k;
-            k++;
 
+        for (int m = r; m < b; m++) //пробегаем вниз
+        {
+            if (array[r, col] == -1)
+            {
+                array[r, col] += k;
+                k++;
+
+            }
+            r++;
         }
         r--;
+
+        for (int j = col; j >= c; j--) //пробегаем влево
+        {
+            if (array[r, col] == -1)
+            {
+                array[r, col] += k;
+                k++;
+
+            }
+            col--;
+        }
+        col++;
+        for (int n = r; n > d; n--) //пробегаем вверх
+        {
+            if (array[r, col] == -1)
+            {
+                array[r, col] += k;
+                k++;
+
+            }
+            r--;
+        }
+        r++;
+        a--;
+        b--;
+        c++;
+        d++;
+        if (array.GetLength(1) % 2 != 0) 
+        {
+            array[r, col + 1] += k;
+        }
     }
-    r++;
-    a--;
-    b--;
-    c++;
-    d++;
-    if (array.GetLength(1)%2!=0)
-    {
-     array[r, col+1] += k;
-    }
-}
 
     return array;
 }
@@ -147,9 +135,6 @@ for (int l=0; l<array.GetLength(1)/2; l++)
 
 int row = Input("Введите количество строк и столбцов: ");
 int column = row;
-//int rowMatrix = 0;
-//int columnMatrix = 0;
-//int kk = 2;
 
 Console.WriteLine();
 
@@ -157,7 +142,7 @@ int[,] array = new int[row, column];
 FillArray(array);
 PrintArray(array);
 Console.WriteLine();
-//FillImage(array, rowMatrix, columnMatrix, kk);
+
 FillMatrixSpiral(array);
 PrintArray(array);
 
