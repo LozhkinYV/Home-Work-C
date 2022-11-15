@@ -37,15 +37,15 @@ int Nambers(int m, int n)
 
 
 
-int M = Input("Введите натуральное число N= ");
-int N = Input("Введите натуральное число большее предыдущего M= ");
+int M = Input("Введите натуральное число M = ");
+int N = Input("Введите натуральное число большее предыдущего N = ");
 if (M > N || N < 1 || M < 1)
 {
     Console.Write($"Вы ввели некорректные данные. Попробуйте еще раз.");
 }
 else
 {
-    Console.Write($"\"");
-    Console.Write(Nambers(M, N));
-    Console.Write($"\"");
+    
+    Console.WriteLine($"Сумма чисел от {M} до {N} = {Nambers(M, N)}");
+    
 }
