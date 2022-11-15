@@ -22,17 +22,15 @@ int Input(string massege) // ввод целочисленных данных
     }
 }
 
-int Nambers (int  value)
+ string Nambers (int n)
 {
-    Console.Write($"{value}, ");
-    
-    if (value==2)
+       if (n<1)
     {
-        return 1;
+        return string.Empty;
     }
     else 
     {
-        return Nambers (value-1);
+        return $"{n},{Nambers (n-1)}";
         
     }
 }
@@ -41,5 +39,5 @@ int Nambers (int  value)
 
 int N = Input("Введите целое число: ");
 Console.Write($"\"");
-Nambers (N);
-Console.Write($"1\"");
+Console.Write((Nambers(N)).TrimEnd(','));
+Console.Write($"\"");
